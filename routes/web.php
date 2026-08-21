@@ -4,7 +4,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
 
-Route::redirect('/', '/fr')->name('landing');
+Route::redirect('/', 'fr')->name('landing');
 
 Route::prefix('{locale}')
     ->where(['locale' => 'fr|en'])
