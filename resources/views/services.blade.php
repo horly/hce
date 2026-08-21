@@ -24,15 +24,25 @@
 
             <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-service-grid>
                 @foreach ($services['items'] as $index => [$icon, $title, $category, $description, $features])
-                    <article @if ($index === 0) id="infrastructure" @elseif ($index === 1) id="managed" @elseif ($index === 2) id="security" @elseif ($index === 5) id="electronic" @elseif ($index === 9) id="business" @endif class="catalogue-card" data-service-card data-category="{{ $category }}" data-reveal>
-                        <div class="flex items-start justify-between gap-4"><span class="service-icon"><x-icon :name="$icon" class="size-7" /></span><span class="service-category">{{ $services['filters'][$category] }}</span></div>
-                        <h2 class="mt-7 font-display text-lg font-semibold text-hce-navy">{{ $title }}</h2>
-                        <p class="mt-3 text-sm leading-7 text-slate-600">{{ $description }}</p>
-                        <ul class="mt-6 space-y-3 border-t border-slate-100 pt-6">
-                            @foreach ($features as $feature)
-                                <li class="flex items-center gap-3 text-sm font-semibold text-slate-700"><x-icon name="check" class="size-4 text-blue-600" />{{ $feature }}</li>
-                            @endforeach
-                        </ul>
+                    <article @if ($index === 0) id="infrastructure" @elseif ($index === 1) id="managed" @elseif ($index === 2) id="security" @elseif ($index === 5) id="electronic" @elseif ($index === 9) id="business" @endif class="catalogue-card service-card-premium group" data-service-card data-category="{{ $category }}" data-reveal>
+                        <div class="corporate-service-top">
+                            <span class="service-icon"><x-icon :name="$icon" class="size-6" /></span>
+                            <span class="service-category">{{ $services['filters'][$category] }}</span>
+                            <span class="corporate-service-number">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</span>
+                        </div>
+                        <div class="corporate-service-body">
+                            <h2 class="font-display text-lg font-semibold text-hce-navy">{{ $title }}</h2>
+                            <p class="mt-3 text-sm leading-7 text-slate-600">{{ $description }}</p>
+                            <div class="corporate-service-features">
+                                @foreach (array_slice($features, 0, 2) as $feature)
+                                    <span><x-icon name="check" class="size-3.5" />{{ $feature }}</span>
+                                @endforeach
+                            </div>
+                        </div>
+                        <a href="{{ route('contact') }}" class="corporate-service-footer">
+                            <span>{{ __('site.nav.expert') }}</span>
+                            <span class="corporate-service-arrow"><x-icon name="arrow-right" class="size-4 transition group-hover:translate-x-0.5" /></span>
+                        </a>
                     </article>
                 @endforeach
             </div>
@@ -55,12 +65,4 @@
         </div>
     </section>
 
-    <section class="section-spacing bg-blue-50">
-        <div class="container-shell">
-            <div class="cta-panel" data-reveal>
-                <div><p class="eyebrow text-orange-300">{{ app()->isLocale('en') ? 'Need an assessment?' : 'Besoin d’un diagnostic ?' }}</p><h2 class="mt-4 max-w-2xl font-display text-2xl font-semibold text-white sm:text-3xl">{{ app()->isLocale('en') ? 'Let’s start by understanding your environment.' : 'Commençons par comprendre votre environnement.' }}</h2></div>
-                <a href="{{ route('contact') }}" class="button-primary button-large shrink-0">{{ app()->isLocale('en') ? 'Talk to an expert' : 'Demander un échange' }}<x-icon name="arrow-right" class="size-5" /></a>
-            </div>
-        </div>
-    </section>
 </x-layouts.app>

@@ -10,13 +10,17 @@
         </div>
     @endif
 
-    <div class="mb-8">
+    <div class="contact-form-heading">
         <p class="eyebrow">{{ $contact['eyebrow'] }}</p>
         <h2 class="mt-3 font-display text-2xl font-semibold text-hce-navy sm:text-[1.75rem]">{{ $contact['title'] }}</h2>
         <p class="mt-3 text-sm leading-6 text-slate-600">{{ $contact['required'] }}</p>
+        <div class="contact-form-assurances">
+            <span><x-icon name="clock" class="size-4" />{{ $contact['response_time'] }}</span>
+            <span><x-icon name="shield" class="size-4" />{{ $contact['secure_processing'] }}</span>
+        </div>
     </div>
 
-    <form action="{{ route('contact.store') }}" method="POST" class="grid gap-5 sm:grid-cols-2" data-contact-form>
+    <form action="{{ route('contact.store') }}" method="POST" class="contact-form-grid grid sm:grid-cols-2" data-contact-form>
         @csrf
 
         <div class="form-field">

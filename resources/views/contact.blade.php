@@ -13,10 +13,10 @@
                 </div>
 
                 <div class="mini-map overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm" data-reveal>
-                    <iframe title="HCE — Kinshasa" src="https://www.google.com/maps?q=107%20Rue%20de%20la%20Victoire%20La%20CONCEM%20Kasa-Vubu%20Kinshasa&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    <a href="https://maps.google.com/?q=107+Rue+de+la+Victoire+La+CONCEM+Kasa-Vubu+Kinshasa" class="flex items-start gap-3 p-4" target="_blank" rel="noreferrer">
+                    <iframe title="HCE — Commune de Kasa-Vubu, Kinshasa" src="https://www.google.com/maps?q=-4.338174%2C15.304587&z=18&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=-4.338174%2C15.304587" class="flex items-start gap-3 p-4" target="_blank" rel="noreferrer">
                         <span class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600"><x-icon name="location" class="size-5" /></span>
-                        <span><small class="block text-[.65rem] font-extrabold uppercase tracking-wider text-slate-400">{{ $contact['office'] }}</small><strong class="mt-1 block text-sm text-hce-navy">107, rue de la Victoire, Kasa-Vubu<br>Imm. La CONCEM, 1er niveau<br>Réf. : Rond-Point Kimpwanza</strong></span>
+                        <span><small class="block text-[.65rem] font-extrabold uppercase tracking-wider text-slate-400">{{ $contact['office'] }}</small><strong class="mt-1 block text-sm text-hce-navy">107, rue de la Victoire<br>Commune de Kasa-Vubu · Imm. La CONCEM, 1er niveau<br>Réf. : Rond-Point Kimpwanza</strong></span>
                     </a>
                 </div>
 
