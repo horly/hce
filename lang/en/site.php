@@ -2,6 +2,7 @@
 
 return [
     'language' => ['label' => 'FR', 'name' => 'Français'],
+    'loader' => ['label' => 'Preparing your HCE experience…'],
     'nav' => [
         'home' => 'Home',
         'company' => 'Company',

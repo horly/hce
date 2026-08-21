@@ -23,12 +23,26 @@
         <title>{{ $title }} | HCE</title>
 
         <link rel="icon" href="{{ asset('images/hce-logo-transparent.png') }}" type="image/png">
+        <link rel="preload" href="{{ asset('images/hce-logo-transparent.png') }}" as="image" fetchpriority="high">
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700,800|plus-jakarta-sans:500,600,700" rel="stylesheet">
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="bg-white text-slate-900 antialiased">
+        <div class="page-loader" data-page-loader role="status" aria-live="polite" aria-label="{{ __('site.loader.label') }}">
+            <div class="page-loader-glow page-loader-glow-blue" aria-hidden="true"></div>
+            <div class="page-loader-glow page-loader-glow-orange" aria-hidden="true"></div>
+            <div class="page-loader-content">
+                <div class="page-loader-logo-shell" aria-hidden="true">
+                    <span class="page-loader-orbit"></span>
+                    <img class="page-loader-logo" src="{{ asset('images/hce-logo-transparent.png') }}" alt="" width="2048" height="768" fetchpriority="high">
+                </div>
+                <div class="page-loader-progress" aria-hidden="true"><span></span></div>
+                <p>{{ __('site.loader.label') }}</p>
+            </div>
+        </div>
+
         <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
 
         <header class="site-header fixed inset-x-0 top-3 z-50" data-site-header>

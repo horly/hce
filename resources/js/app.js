@@ -2,6 +2,34 @@ import './bootstrap';
 
 document.documentElement.classList.add('js');
 
+const pageLoader = document.querySelector('[data-page-loader]');
+const pageLoaderStartedAt = performance.now();
+let pageLoaderDismissed = false;
+
+const dismissPageLoader = () => {
+    if (!pageLoader || pageLoaderDismissed) {
+        return;
+    }
+
+    pageLoaderDismissed = true;
+    const remainingDisplayTime = Math.max(0, 550 - (performance.now() - pageLoaderStartedAt));
+
+    window.setTimeout(() => {
+        pageLoader.dataset.state = 'hidden';
+        pageLoader.setAttribute('aria-hidden', 'true');
+
+        window.setTimeout(() => pageLoader.remove(), 700);
+    }, remainingDisplayTime);
+};
+
+if (document.readyState === 'complete') {
+    dismissPageLoader();
+} else {
+    window.addEventListener('load', dismissPageLoader, { once: true });
+}
+
+window.setTimeout(dismissPageLoader, 5000);
+
 const header = document.querySelector('[data-site-header]');
 const menuToggle = document.querySelector('[data-menu-toggle]');
 const mobileMenu = document.querySelector('[data-mobile-menu]');
