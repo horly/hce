@@ -9,7 +9,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="{{ $description }}">
-        <meta name="theme-color" content="#061936">
+        <meta name="theme-color" content="#032d6b">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <meta property="og:type" content="website">
@@ -100,20 +100,7 @@
         </main>
 
         <footer class="site-footer text-white">
-            <div class="container-shell relative z-10 -mb-20">
-                <div class="footer-cta">
-                    <div>
-                        <p class="eyebrow text-orange-300">{{ __('site.footer.eyebrow') }}</p>
-                        <h2 class="mt-3 max-w-3xl font-display text-2xl font-semibold tracking-tight sm:text-3xl lg:text-[2.2rem]">{{ __('site.footer.title') }}</h2>
-                    </div>
-                    <a href="{{ route('contact') }}" class="button-primary button-large shrink-0">
-                        {{ __('site.footer.cta') }}
-                        <x-icon name="arrow-right" class="size-5" />
-                    </a>
-                </div>
-            </div>
-
-            <div class="container-shell grid gap-12 pb-14 pt-36 md:grid-cols-2 lg:grid-cols-[1.35fr_.7fr_.85fr_.8fr] lg:pt-40">
+            <div class="container-shell grid gap-12 pb-14 pt-16 md:grid-cols-2 lg:grid-cols-[1.35fr_.7fr_.85fr_.8fr] lg:pt-20">
                 <div class="max-w-sm">
                     <a href="{{ route('home') }}" class="brand-mark brand-mark-footer" aria-label="HCE, accueil">
                         <img src="{{ asset('images/hce-logo-transparent.png') }}" alt="HCE">
@@ -121,7 +108,7 @@
                     <p class="mt-6 text-sm leading-7 text-slate-300">{{ __('site.footer.description') }}</p>
                     <div class="mt-6 flex items-center gap-2" aria-label="Réseaux sociaux HCE">
                         <a class="social-link" href="https://www.facebook.com/HCE" target="_blank" rel="noopener noreferrer" aria-label="HCE sur Facebook"><x-icon name="facebook" class="size-5" /></a>
-                        <a class="social-link" href="https://www.linkedin.com/company/hce/" target="_blank" rel="noopener noreferrer" aria-label="HCE sur LinkedIn"><x-icon name="linkedin" class="size-5" /></a>
+                        <a class="social-link" href="https://www.linkedin.com/company/hightech-computing-evolution/?viewAsMember=true" target="_blank" rel="noopener noreferrer" aria-label="HCE sur LinkedIn"><x-icon name="linkedin" class="size-5" /></a>
                         <a class="social-link" href="https://www.instagram.com/hce.cd/" target="_blank" rel="noopener noreferrer" aria-label="HCE sur Instagram"><x-icon name="instagram" class="size-5" /></a>
                         <a class="social-link" href="https://www.youtube.com/@HCE" target="_blank" rel="noopener noreferrer" aria-label="HCE sur YouTube"><x-icon name="youtube" class="size-5" /></a>
                     </div>

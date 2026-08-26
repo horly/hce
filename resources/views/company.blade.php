@@ -41,8 +41,8 @@
             'team_description' => 'Strategic vision and sound management, anchored in the realities of our clients.',
             'team_label' => 'HCE Leadership',
             'team' => [
-                ['team/orden-badibanga.jpg', 'Orden Badibanga', 'General Manager'],
-                ['team/ruth-hokiel.png', 'Ruth Hokiel', 'Financial Manager'],
+                ['team/orden-badibanga.jpg', 'Orden BADIBANGA', 'General Manager'],
+                ['team/ruth-hokiel.png', 'Ruth HOKIEL', 'Financial Manager'],
             ],
         ]
         : [
@@ -86,8 +86,8 @@
             'team_description' => 'Une vision stratégique et une gestion rigoureuse, ancrées dans les réalités de nos clients.',
             'team_label' => 'Direction HCE',
             'team' => [
-                ['team/orden-badibanga.jpg', 'Orden Badibanga', 'Directeur général'],
-                ['team/ruth-hokiel.png', 'Ruth Hokiel', 'Financial Manager'],
+                ['team/orden-badibanga.jpg', 'Orden BADIBANGA', 'Directeur général'],
+                ['team/ruth-hokiel.png', 'Ruth HOKIEL', 'Financial Manager'],
             ],
         ];
 @endphp
