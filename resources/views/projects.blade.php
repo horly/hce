@@ -15,7 +15,12 @@
 @endphp
 
 <x-layouts.app :title="$page['eyebrow']" :description="$page['description']">
-    <x-page-hero :eyebrow="$page['eyebrow']" :title="$page['title']" :description="$page['description']"><a href="{{ route('contact') }}" class="button-primary button-large">{{ $page['cta'] }}<x-icon name="arrow-right" class="size-5" /></a></x-page-hero>
+    <x-page-hero :eyebrow="$page['eyebrow']" :title="$page['title']" :description="$page['description']">
+        <div class="flex flex-wrap gap-3">
+            <a href="{{ route('contact') }}" class="button-primary button-large">{{ $page['cta'] }}<x-icon name="arrow-right" class="size-5" /></a>
+            <a href="{{ route('annexes') }}" class="button-secondary button-large">{{ __('site.nav.annexes') }}<x-icon name="arrow-right" class="size-5" /></a>
+        </div>
+    </x-page-hero>
     <section class="section-spacing bg-white"><div class="container-shell space-y-20">
         @foreach ($page['items'] as $index => [$image, $category, $title, $description])
             <article class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">

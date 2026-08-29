@@ -8,6 +8,9 @@
         @case('network')
             <rect x="3" y="3" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><path d="M6 8v4h12v4M6 12v4M12 12V8"/><circle cx="12" cy="5" r="2"/>
             @break
+        @case('globe')
+            <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>
+            @break
         @case('shield')
             <path d="M12 3 4.5 6v5.5c0 4.6 3 7.8 7.5 9.5 4.5-1.7 7.5-4.9 7.5-9.5V6z"/><path d="m9 12 2 2 4-4"/>
             @break
@@ -67,6 +70,9 @@
             @break
         @case('chevron-right')
             <path d="m9 18 6-6-6-6"/>
+            @break
+        @case('x')
+            <path d="M18 6 6 18M6 6l12 12"/>
             @break
         @case('facebook')
             <path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v5h4v-5h3l1-4h-4V9c0-.7.3-1 1-1z"/>

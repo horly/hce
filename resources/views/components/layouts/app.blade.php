@@ -56,6 +56,7 @@
                     <x-nav-link :href="route('company')" :active="request()->routeIs('company')">{{ __('site.nav.company') }}</x-nav-link>
                     <x-nav-link :href="route('services')" :active="request()->routeIs('services', 'electronic-security')">{{ __('site.nav.solutions') }}</x-nav-link>
                     <x-nav-link :href="route('projects')" :active="request()->routeIs('projects')">{{ __('site.nav.projects') }}</x-nav-link>
+                    <x-nav-link :href="route('annexes')" :active="request()->routeIs('annexes')">{{ __('site.nav.annexes') }}</x-nav-link>
                     <x-nav-link :href="route('training')" :active="request()->routeIs('training')">{{ __('site.nav.academy') }}</x-nav-link>
                     <x-nav-link :href="route('resources')" :active="request()->routeIs('resources')">{{ __('site.nav.resources') }}</x-nav-link>
                 </nav>
@@ -83,6 +84,7 @@
                     <x-nav-link :href="route('company')" :active="request()->routeIs('company')" mobile>{{ __('site.nav.company') }}</x-nav-link>
                     <x-nav-link :href="route('services')" :active="request()->routeIs('services', 'electronic-security')" mobile>{{ __('site.nav.solutions') }}</x-nav-link>
                     <x-nav-link :href="route('projects')" :active="request()->routeIs('projects')" mobile>{{ __('site.nav.projects') }}</x-nav-link>
+                    <x-nav-link :href="route('annexes')" :active="request()->routeIs('annexes')" mobile>{{ __('site.nav.annexes') }}</x-nav-link>
                     <x-nav-link :href="route('training')" :active="request()->routeIs('training')" mobile>{{ __('site.nav.academy') }}</x-nav-link>
                     <x-nav-link :href="route('resources')" :active="request()->routeIs('resources')" mobile>{{ __('site.nav.resources') }}</x-nav-link>
                     <x-nav-link :href="route('contact')" :active="request()->routeIs('contact')" mobile>{{ __('site.nav.contact') }}</x-nav-link>
@@ -119,6 +121,7 @@
                     <div class="mt-5 flex flex-col gap-3 text-sm text-slate-300">
                         <a class="footer-link" href="{{ route('company') }}">{{ __('site.nav.company') }}</a>
                         <a class="footer-link" href="{{ route('projects') }}">{{ __('site.nav.projects') }}</a>
+                        <a class="footer-link" href="{{ route('annexes') }}">{{ __('site.nav.annexes') }}</a>
                         <a class="footer-link" href="{{ route('training') }}">HCE {{ __('site.nav.academy') }}</a>
                         <a class="footer-link" href="{{ route('resources') }}">{{ __('site.nav.resources') }}</a>
                     </div>

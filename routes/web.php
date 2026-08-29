@@ -16,6 +16,7 @@ Route::prefix('{locale}')
         Route::view('/solutions/securite-electronique', 'electronic-security')->name('electronic-security');
         Route::view('/formations', 'training')->name('training');
         Route::view('/realisations', 'projects')->name('projects');
+        Route::view('/annexes', 'annexes')->name('annexes');
         Route::view('/ressources', 'resources')->name('resources');
         Route::view('/contact', 'contact')->name('contact');
         Route::view('/politique-de-confidentialite', 'legal.privacy')->name('privacy');

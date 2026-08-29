@@ -248,6 +248,93 @@ serviceFilters.forEach((filterButton) => {
     });
 });
 
+const galleryItems = [...document.querySelectorAll('[data-gallery-item]')];
+const galleryDialog = document.querySelector('[data-gallery-dialog]');
+const galleryImage = galleryDialog?.querySelector('[data-gallery-image]');
+const galleryCaption = galleryDialog?.querySelector('[data-gallery-caption]');
+const galleryPosition = galleryDialog?.querySelector('[data-gallery-position]');
+const galleryClose = galleryDialog?.querySelector('[data-gallery-close]');
+const galleryPrevious = galleryDialog?.querySelector('[data-gallery-previous]');
+const galleryNext = galleryDialog?.querySelector('[data-gallery-next]');
+let galleryIndex = 0;
+let galleryTrigger = null;
+
+const showGalleryItem = (nextIndex) => {
+    if (!galleryDialog || !galleryImage || galleryItems.length === 0) {
+        return;
+    }
+
+    galleryIndex = (nextIndex + galleryItems.length) % galleryItems.length;
+    const galleryItem = galleryItems[galleryIndex];
+    const positionTemplate = galleryDialog.dataset.positionTemplate ?? 'Photo :current / :total';
+
+    galleryImage.src = galleryItem.dataset.imageSrc ?? '';
+    galleryImage.alt = galleryItem.dataset.imageAlt ?? '';
+
+    if (galleryCaption) {
+        galleryCaption.textContent = galleryItem.dataset.imageCaption ?? '';
+    }
+
+    if (galleryPosition) {
+        galleryPosition.textContent = positionTemplate
+            .replace(':current', String(galleryIndex + 1))
+            .replace(':total', String(galleryItems.length));
+    }
+};
+
+const openGallery = (index, trigger) => {
+    if (!galleryDialog) {
+        return;
+    }
+
+    galleryTrigger = trigger;
+    showGalleryItem(index);
+    galleryDialog.hidden = false;
+    document.body.classList.add('overflow-hidden');
+    galleryClose?.focus();
+};
+
+const closeGallery = () => {
+    if (!galleryDialog || galleryDialog.hidden) {
+        return;
+    }
+
+    galleryDialog.hidden = true;
+    document.body.classList.remove('overflow-hidden');
+    galleryTrigger?.focus();
+};
+
+galleryItems.forEach((galleryItem, index) => {
+    galleryItem.addEventListener('click', () => openGallery(index, galleryItem));
+});
+
+galleryClose?.addEventListener('click', closeGallery);
+galleryPrevious?.addEventListener('click', () => showGalleryItem(galleryIndex - 1));
+galleryNext?.addEventListener('click', () => showGalleryItem(galleryIndex + 1));
+galleryDialog?.addEventListener('click', (event) => {
+    if (event.target === galleryDialog) {
+        closeGallery();
+    }
+});
+
+document.addEventListener('keydown', (event) => {
+    if (!galleryDialog || galleryDialog.hidden) {
+        return;
+    }
+
+    if (event.key === 'Escape') {
+        closeGallery();
+    }
+
+    if (event.key === 'ArrowLeft') {
+        showGalleryItem(galleryIndex - 1);
+    }
+
+    if (event.key === 'ArrowRight') {
+        showGalleryItem(galleryIndex + 1);
+    }
+});
+
 const contactForm = document.querySelector('[data-contact-form]');
 
 contactForm?.addEventListener('submit', () => {

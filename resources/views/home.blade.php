@@ -133,6 +133,56 @@
                     </a>
                 @endforeach
             </div>
+
+            <div class="group relative mt-8 isolate overflow-hidden rounded-[2rem] border border-blue-400/30 bg-[linear-gradient(120deg,#032d6b_0%,#064aa8_55%,#0370f7_100%)] px-7 py-9 text-white shadow-[0_30px_80px_rgb(3_45_107_/_0.25)] sm:px-10 sm:py-11 lg:grid lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-14 lg:px-12" data-reveal>
+                <div class="hero-grid absolute inset-0 -z-10 opacity-35" aria-hidden="true"></div>
+                <div class="absolute -left-24 -top-32 -z-10 size-80 rounded-full bg-orange-400/15 blur-3xl" aria-hidden="true"></div>
+                <div class="absolute -bottom-40 right-0 -z-10 size-96 rounded-full bg-blue-300/25 blur-3xl" aria-hidden="true"></div>
+
+                <div class="relative">
+                    <div class="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-4 py-2 backdrop-blur-sm">
+                        <span class="size-2 rounded-full bg-orange-400 shadow-[0_0_0_5px_rgb(251_146_60_/_0.14)]"></span>
+                        <p class="text-[.65rem] font-extrabold uppercase tracking-[.14em] text-orange-200">{{ $home['domain_eyebrow'] }}</p>
+                    </div>
+                    <h3 class="mt-5 max-w-2xl font-display text-3xl font-semibold leading-tight tracking-[-.04em] sm:text-4xl">{{ $home['domain_title'] }}</h3>
+                    <p class="mt-5 max-w-xl text-sm leading-7 text-blue-100 sm:text-base">{{ $home['domain_description'] }}</p>
+                    <div class="mt-7 flex flex-wrap gap-2.5">
+                        @foreach ($home['domain_features'] as $feature)
+                            <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-slate-950/15 px-3 py-2 text-xs font-bold text-white backdrop-blur-sm">
+                                <x-icon name="check" class="size-3.5 text-orange-300" />{{ $feature }}
+                            </span>
+                        @endforeach
+                    </div>
+                </div>
+
+                <div class="relative mt-9 lg:mt-0">
+                    <div class="absolute -inset-4 rounded-[2rem] bg-white/10 blur-xl transition duration-500 group-hover:bg-white/15" aria-hidden="true"></div>
+                    <div class="relative rounded-2xl border border-white/20 bg-white/10 p-3 shadow-2xl backdrop-blur-xl transition duration-500 group-hover:-translate-y-1">
+                        <div class="overflow-hidden rounded-xl bg-white text-slate-900 shadow-[0_20px_50px_rgb(2_27_66_/_0.28)]">
+                            <div class="flex items-center gap-4 p-5 sm:p-6">
+                                <span class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                                    <x-icon name="globe" class="size-6" />
+                                </span>
+                                <div class="min-w-0 flex-1">
+                                    <p class="text-[.62rem] font-extrabold uppercase tracking-[.13em] text-slate-400">{{ $home['domain_preview_label'] }}</p>
+                                    <p class="mt-1 truncate font-display text-lg font-semibold tracking-[-.025em] text-hce-navy sm:text-xl">{{ $home['domain_preview_name'] }}<span class="text-blue-600">.cd</span></p>
+                                </div>
+                                <span class="hidden items-center gap-2 rounded-full bg-emerald-50 px-3 py-2 text-[.65rem] font-extrabold text-emerald-700 sm:inline-flex">
+                                    <span class="size-2 rounded-full bg-emerald-500"></span>{{ $home['domain_ready'] }}
+                                </span>
+                            </div>
+                            <div class="flex flex-col gap-3 border-t border-slate-100 bg-slate-50 p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
+                                <div class="flex items-center gap-2" aria-label="Extensions disponibles">
+                                    @foreach (['.cd', '.com', '.org'] as $extension)
+                                        <span class="rounded-lg border border-slate-200 bg-white px-3 py-2 font-display text-xs font-bold text-slate-600">{{ $extension }}</span>
+                                    @endforeach
+                                </div>
+                                <a href="{{ config('hce.domain_portal_url') }}" class="button-primary button-large w-full sm:w-auto">{{ $home['domain_cta'] }}<x-icon name="arrow-right" class="size-5" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

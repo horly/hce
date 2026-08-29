@@ -24,7 +24,7 @@
 
             <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-service-grid>
                 @foreach ($services['items'] as $index => [$icon, $title, $category, $description, $features])
-                    <article @if ($index === 0) id="infrastructure" @elseif ($index === 1) id="managed" @elseif ($index === 2) id="security" @elseif ($index === 5) id="electronic" @elseif ($index === 9) id="business" @endif class="catalogue-card service-card-premium group" data-service-card data-category="{{ $category }}" data-reveal>
+                    <article @if ($index === 0) id="infrastructure" @elseif ($index === 1) id="managed" @elseif ($index === 2) id="security" @elseif ($index === 5) id="electronic" @elseif ($index === 9) id="business" @endif class="catalogue-card service-card-premium group {{ $index === 6 ? 'border-blue-300 ring-4 ring-blue-100/70 shadow-[0_24px_55px_rgb(3_112_247_/_0.14)]' : '' }}" data-service-card data-category="{{ $category }}" data-reveal>
                         <div class="corporate-service-top">
                             <span class="service-icon"><x-icon :name="$icon" class="size-6" /></span>
                             <span class="service-category">{{ $services['filters'][$category] }}</span>
@@ -39,8 +39,8 @@
                                 @endforeach
                             </div>
                         </div>
-                        <a href="{{ route('contact') }}" class="corporate-service-footer">
-                            <span>{{ __('site.nav.expert') }}</span>
+                        <a href="{{ $index === 6 ? config('hce.domain_portal_url') : route('contact') }}" class="corporate-service-footer {{ $index === 6 ? 'bg-blue-50 text-blue-700' : '' }}">
+                            <span>{{ $index === 6 ? $services['domain_cta'] : __('site.nav.expert') }}</span>
                             <span class="corporate-service-arrow"><x-icon name="arrow-right" class="size-4 transition group-hover:translate-x-0.5" /></span>
                         </a>
                     </article>

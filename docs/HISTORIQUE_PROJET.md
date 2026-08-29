@@ -1,6 +1,6 @@
 # Historique du projet HCE
 
-Dernière mise à jour : 26 août 2026
+Dernière mise à jour : 29 août 2026
 
 ## 1. Présentation
 
@@ -27,6 +27,7 @@ Le site comprend les pages publiques suivantes, disponibles en français et en a
 | Sécurité électronique | `/{locale}/solutions/securite-electronique` |
 | Formations / HCE Academy | `/{locale}/formations` |
 | Réalisations | `/{locale}/realisations` |
+| Annexes des projets | `/{locale}/annexes` |
 | Ressources | `/{locale}/ressources` |
 | Contact | `/{locale}/contact` |
 | Politique de confidentialité | `/{locale}/politique-de-confidentialite` |
@@ -245,6 +246,17 @@ Sauvegarde dédiée au rollback :
 
 Les archives temporaires locale et distante ont été supprimées après validation.
 
+### Lien vers l’achat de domaines — 29 août 2026
+
+Un accès direct au portail `https://host.hce.cd/index.php` a été ajouté :
+
+- sur la page d’accueil, sous la grille des services ;
+- sur la page Solutions, dans la carte `Domaines .cd & .com` ;
+- en français et en anglais ;
+- avec une URL centralisée dans la variable `HCE_DOMAIN_PORTAL_URL`.
+
+Cette modification est présente localement et reste à déployer.
+
 ## 7. Tests automatisés
 
 La suite actuelle contient des tests unitaires et fonctionnels couvrant notamment :
@@ -253,10 +265,11 @@ La suite actuelle contient des tests unitaires et fonctionnels couvrant notammen
 - le rendu de toutes les pages publiques en anglais ;
 - le changement de langue en conservant la page courante ;
 - la présence de la grille de technologies et de l’adresse du bureau ;
+- la présence du lien d’achat de domaines sur l’accueil et la page Solutions dans les deux langues ;
 - l’acceptation et l’envoi d’une demande de contact valide ;
 - le rejet d’un formulaire de contact incomplet.
 
-État au 26 août 2026 : **28 tests réussis, 69 assertions**.
+État au 29 août 2026 : **35 tests réussis, 90 assertions**.
 
 Commande de vérification :
 
@@ -273,6 +286,7 @@ php artisan test
 | Traductions anglaises | `lang/en/site.php` |
 | Layout principal | `resources/views/components/layouts/app.blade.php` |
 | Page d’accueil | `resources/views/home.blade.php` |
+| Annexes des projets | `resources/views/annexes.blade.php` |
 | Styles principaux | `resources/css/app.css` |
 | Interactions JavaScript | `resources/js/app.js` |
 | Formulaire réutilisable | `resources/views/components/contact-form.blade.php` |
@@ -289,6 +303,7 @@ Les variables importantes sont documentées dans `.env.example`. Pour la product
 - `APP_URL` et les paramètres généraux de Laravel ;
 - les paramètres `MAIL_*` du serveur d’envoi ;
 - `HCE_CONTACT_RECIPIENT`, qui définit le destinataire du formulaire ;
+- `HCE_DOMAIN_PORTAL_URL`, qui définit le portail externe d’achat de domaines ;
 - la configuration de cache, session et file d’attente selon l’hébergement.
 
 Commandes courantes :
@@ -302,7 +317,8 @@ php artisan test
 
 ## 10. État actuel et suite du travail
 
-- Les quatre premiers retours du client ont été appliqués localement et déployés en production.
+- Les cinq retours du 26 août 2026 ont été appliqués et déployés en production.
+- La page Annexes et le lien d’achat de domaines ont été ajoutés localement et restent à déployer.
 - La documentation présente a été ajoutée dans `docs/`.
 - Les autres retours du client restent à recevoir et à traiter un par un.
 - Chaque nouvelle série de retours devra être validée par les tests et le build frontend avant son déploiement.
@@ -348,3 +364,16 @@ Les archives temporaires de transfert ont été supprimées après validation. L
 | 21 août 2026 | `07477f6` | Modernisation du site vitrine HCE |
 | 21 août 2026 | `17ec2db` | Correction de la redirection de langue pour le déploiement en sous-domaine |
 | 21 août 2026 | `2bc846e` | Ajout de l’expérience de chargement aux couleurs de HCE |
+
+## 13. Page Annexes des projets — 29 août 2026
+
+Une page bilingue consacrée aux photos des réalisations HCE a été ajoutée à l’adresse `/{locale}/annexes`.
+
+- intégration de 19 photos fournies par le client ;
+- organisation en trois domaines : HCE Academy, infrastructures et réseaux, sécurité électronique ;
+- galerie responsive avec légendes en français et en anglais ;
+- visionneuse agrandie avec navigation précédente/suivante et commandes clavier ;
+- accès depuis la navigation principale, le menu mobile, le pied de page et la page Réalisations ;
+- chargement différé des images et optimisation des deux fichiers sources dépassant 15 Mo ;
+- ajout des URL française et anglaise au sitemap ;
+- couverture du rendu et du nombre de photos par les tests fonctionnels.
