@@ -377,3 +377,25 @@ Une page bilingue consacrée aux photos des réalisations HCE a été ajoutée �
 - chargement différé des images et optimisation des deux fichiers sources dépassant 15 Mo ;
 - ajout des URL française et anglaise au sitemap ;
 - couverture du rendu et du nombre de photos par les tests fonctionnels.
+
+## 14. Déploiement sur le cPanel HCE — 6 septembre 2026
+
+La version locale, incluant la page Annexes et le lien d’achat de domaines, a été déployée sur `https://hce.cd`.
+
+- application Laravel privée dans `/home/hcecd/hce` ; fichiers publics dans `/home/hcecd/public_html` ;
+- PHP 8.2 activé pour `hce.cd`, portail `host.hce.cd` conservé sous PHP 8.1 ;
+- ancien site sauvegardé dans `/home/hcecd/backups/hce-before-20260906.tar.gz` ;
+- base SQLite dédiée, configuration de production et caches créés sur le serveur ;
+- sitemap corrigé pour les 24 pages bilingues ;
+- 35 tests locaux réussis et 86 contrôles HTTP de production réussis ;
+- tâches temporaires retirées après activation.
+
+Les chemins, la configuration, les vérifications et les précautions de mise à jour sont détaillés dans [DEPLOIEMENT_CPANEL.md](DEPLOIEMENT_CPANEL.md).
+
+### Correction de l’indicateur Entreprise — 6 septembre 2026
+
+Le libellé de la page Entreprise a été corrigé en « 30+ Projets réalisés » et « 30+ Projects delivered ». Cette correction a été déployée sur cPanel après sauvegarde du modèle dans `/home/hcecd/backups/company-before-projects-label-20260906.blade.php` et reconstruction du cache Blade.
+
+Les 35 tests locaux et la compilation Vite passent. Les pages Entreprise française et anglaise ainsi que leurs ressources CSS et JavaScript ont été vérifiées en HTTP 200 avec les nouveaux libellés.
+
+Le déploiement de cette correction sur Prestavice a été demandé également, mais reste en attente du mot de passe SSH : l’identité du serveur a été vérifiée et l’essai avec les clés disponibles a été refusé. Aucun fichier Prestavice n’a été modifié lors de cet essai.
